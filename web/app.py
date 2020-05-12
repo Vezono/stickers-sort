@@ -66,7 +66,6 @@ def get_file(url, name):
     r = requests.get(url)
     out = open(f"res\\{name}", "wb")
     out.write(r.content)
-    out.close()
     return f'res/{name}'
 
 
