@@ -25,7 +25,7 @@ def me_handler(m):
         return
     user_id = str(m.from_user.id) + r.get('salt').decode("utf-8") 
     hash = hashlib.md5(user_id.encode()).hexdigest()
-    link = f'lk-contest.herokuapp.com/index.html?id={m.from_user.id}&session={hash}'
+    link = f'lk-contest.herokuapp.com/?id={m.from_user.id}&session={hash}'
     tts = f'Вот ваша ссылка для входа. НИКОМУ ЕЕ НЕ ДАВАЙТЕ!\n{link}'
     bot.reply_to(m, tts)
 
