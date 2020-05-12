@@ -8,7 +8,8 @@ db = MongoClient(config.database)
 users = db.stickers.users
 
 import hashlib
-
+import redis
+r = redis.Redis()
 
 @bot.message_handler(commands=['login'])
 def me_handler(m):
@@ -16,10 +17,9 @@ def me_handler(m):
     if not user:
         bot.reply_to(m, 'Вы не зарегестрированы. Нажмите /start')
         return
-    user_id = str(m.from_user.id)
-    hash = hashlib.sha1(user_id.encode()).hexdigest()
-    hash = hashlib.md5(hash.encode()).hexdigest()
-    link = f'lk-contest.herokuapp.com/index.html?login={hash}'
+    user_id = str(m.from_user.id) + r.get('salt')
+    hash = hashlib.md5(user_id.encode()).hexdigest()
+    link = f'lk-contest.herokuapp.com/index.html?id={m.from_user.id}&session={hash}'
     tts = f'Вот ваша ссылка для входа. НИКОМУ ЕЕ НЕ ДАВАЙТЕ!\n{link}'
     bot.reply_to(m, tts)
 
