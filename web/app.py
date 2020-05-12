@@ -12,9 +12,8 @@ url = urlparse.urlparse(redis_url)
 r = redis.Redis(host=url.hostname, port=url.port, db=0, password=url.password)
 
 import web.config
-
-import TeleBot
-bot = TeleBot.telebot(config.token)
+from telebot import TeleBot
+bot = TeleBot(config.token)
 
 from pymongo import MongoClient
 
