@@ -20,6 +20,7 @@ def generate_salt():
   h = hashlib.sha1(tth).hexdigest()
   return h[:20]
 
+set_salt()
 while True:
   time.sleep(random.randint(180, 1800))
-  set_salt()
+  set_saltset_salt()()
