@@ -10,6 +10,8 @@ urlparse.uses_netloc.append('redis')
 url = urlparse.urlparse(redis_url)
 r = redis.Redis(host=url.hostname, port=url.port, db=0, password=url.password)
 
+domain = 'http://lk-contest.herokuapp.com'
+
 app.secret_key = 'UFHEuonhBWSIHfANJ:BFueojfb!wbeofipjmnv'
 
 @app.route('/', methods=['GET'])
@@ -21,13 +23,13 @@ def hello_world():
     if not check_user(user_id, key):
         return 'У ссылки истек срок действия или она повреждена.'
     session['id'] = user_id
-    return f'Вход успешен! {url_for("logout")} - выйти из системы {url_for("main_page")} - главная'
+    return f'Вход успешен! {domain + url_for("logout")} - выйти из системы {domain + url_for("main_page")} - главная'
 
 @app.route('/logout')
 def logout():
     # удалить из сессии имя пользователя, если оно там есть
     session.pop('id', None)
-    return redirect(url_for('/'))
+    return redirect(domain)
 
 @app.route('/main')
 def main_page():
