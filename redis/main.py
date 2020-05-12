@@ -23,4 +23,4 @@ def generate_salt():
 set_salt()
 while True:
   time.sleep(random.randint(180, 1800))
-  set_saltset_salt()()
+  set_salt()
