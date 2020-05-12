@@ -4,7 +4,7 @@ import os
 
 @app.route('/', methods=['GET'])
 def hello_world():
-    return render_template('hello.html')
+    return render_template('index.html')
 
 if __name__ == "__main__":
     app.run(threaded=True, port=os.environ['PORT'])
