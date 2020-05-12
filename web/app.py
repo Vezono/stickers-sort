@@ -11,7 +11,13 @@ urlparse.uses_netloc.append('redis')
 url = urlparse.urlparse(redis_url)
 r = redis.Redis(host=url.hostname, port=url.port, db=0, password=url.password)
 
-from bot.bot import bot, users
+import config
+
+bot = BotUtil(config.token, config.creator)
+from pymongo import MongoClient
+
+db = MongoClient(config.database)
+users = db.stickers.users
 
 domain = 'http://lk-contest.herokuapp.com'
 
