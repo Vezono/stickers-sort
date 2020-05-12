@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session
+from flask import Flask, render_template, request, session, url_for
 app = Flask(__name__)
 import os
 
@@ -21,11 +21,7 @@ def hello_world():
     if not check_user(user_id, key):
         return 'У ссылки истек срок действия или она повреждена.'
     session['id'] = user_id
-    return f"""
-Вход успешен!
-http://lk-contest.herokuapp.com/logout - выйти из системы
-http://lk-contest.herokuapp.com/main - главная
-    """
+    return f'Вход успешен! {url_for("/logout")} - выйти из системы {url_for("/main")} - главная'
 
 @app.route('/logout')
 def logout():
@@ -33,6 +29,9 @@ def logout():
     session.pop('id', None)
     return redirect(url_for('/'))
 
+@app.route('/main')
+def main_page():
+    return f'Ваш айди  - {session['id']}'
 
 def check_user(user_id, key):
     salted = user_id + r.get('salt').decode("utf-8")
