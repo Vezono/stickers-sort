@@ -62,7 +62,7 @@ def check_user(user_id, key):
     
     
 def get_file(url, name):
-    r = requests.get(img)
+    r = requests.get(url)
     out = open(f"res/{name}.webp", "wb")
     out.write(p.content)
     out.close()
