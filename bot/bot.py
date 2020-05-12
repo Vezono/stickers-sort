@@ -1,4 +1,4 @@
-import bot.config
+import config
 from modules.BotUtil import BotUtil
 
 bot = BotUtil(config.token, config.creator)
