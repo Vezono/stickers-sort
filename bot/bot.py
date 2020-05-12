@@ -10,7 +10,7 @@ users = db.stickers.users
 import hashlib
 import redis
 
-import urlparse
+import urllib.parse as urlparse
 import os
 redis_url = os.getenv('REDISTOGO_URL')
 urlparse.uses_netloc.append('redis')
