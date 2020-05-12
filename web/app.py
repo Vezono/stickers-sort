@@ -13,7 +13,9 @@ r = redis.Redis(host=url.hostname, port=url.port, db=0, password=url.password)
 
 import web.config
 
-bot = BotUtil(config.token, config.creator)
+import TeleBot
+bot = TeleBot.telebot(config.token)
+
 from pymongo import MongoClient
 
 db = MongoClient(config.database)
