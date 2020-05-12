@@ -56,7 +56,7 @@ def main_page():
 @app.route('/get_pic')
 def get_pic():
     pic = request.args.get('pic')
-    return redirect(f'https://api.telegram.org/file/bot1088457782:AAHnoZ1VBbewxcrv1ai-eKqdMaPVEfD50RE/stickers/{pic}')
+    return redirect(f'https://api.telegram.org/file/bot1088457782:AAHnoZ1VBbewxcrv1ai-eKqdMaPVEfD50RE/stickers/{pic}', code=301)
     
     
 def check_user(user_id, key):
