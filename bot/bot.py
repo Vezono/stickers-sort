@@ -9,7 +9,13 @@ users = db.stickers.users
 
 import hashlib
 import redis
-r = redis.Redis()
+
+import urlparse
+import os
+redis_url = os.getenv('REDISTOGO_URL')
+urlparse.uses_netloc.append('redis')
+url = urlparse.urlparse(redis_url)
+r = redis.Redis(host=url.hostname, port=url.port, db=0, password=url.password)
 
 @bot.message_handler(commands=['login'])
 def me_handler(m):
