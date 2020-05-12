@@ -46,7 +46,11 @@ def logout():
 def main_page():
     user_id = int(session["id"])
     stickers = get_stickers(user_id)
-    return render_template('main.html', stickers=stickers)
+    imgs = []
+    for sticker in stickers:
+        number = sticker.split('stickers/')[1]
+        img = get_file(sticker, number)
+    return render_template('main.html', stickers=imgs)
         
     
     
@@ -59,7 +63,7 @@ def check_user(user_id, key):
     
 def get_file(url, name):
     r = requests.get(img)
-    out = open(f"res/{name}.png", "wb")
+    out = open(f"res/{name}.webp", "wb")
     out.write(p.content)
     out.close()
     return f'res/{name}.png'
