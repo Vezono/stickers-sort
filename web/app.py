@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session
 app = Flask(__name__)
 import os
 
@@ -18,8 +18,19 @@ def hello_world():
         return 'Вы не вошли в систему. Получите ссылку в боте командой /login'
     if not check_user(user_id, key):
         return 'У ссылки истек срок действия или она повреждена.'
-    return 'Успешный вход!'
-    #return render_template('index.html')
+    session['id'] = user_id
+    return f"""
+Вход успешен!
+http://lk-contest.herokuapp.com/logout - выйти из системы
+http://lk-contest.herokuapp.com/main - главная
+    """
+
+@app.route('/logout')
+def logout():
+    # удалить из сессии имя пользователя, если оно там есть
+    session.pop('id', None)
+    return redirect(url_for('/'))
+
 
 def check_user(user_id, key):
     salted = user_id + r.get('salt').decode("utf-8")
