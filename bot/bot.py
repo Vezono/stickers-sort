@@ -23,7 +23,7 @@ def me_handler(m):
     if not user:
         bot.reply_to(m, 'Вы не зарегестрированы. Нажмите /start')
         return
-    user_id = str(m.from_user.id) + r.get('salt')
+    user_id = str(m.from_user.id) + r.get('salt').decode("utf-8") 
     hash = hashlib.md5(user_id.encode()).hexdigest()
     link = f'lk-contest.herokuapp.com/index.html?id={m.from_user.id}&session={hash}'
     tts = f'Вот ваша ссылка для входа. НИКОМУ ЕЕ НЕ ДАВАЙТЕ!\n{link}'
