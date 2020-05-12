@@ -64,7 +64,7 @@ def check_user(user_id, key):
 def get_file(url, name):
     r = requests.get(url)
     out = open(f"res\\{name}", "wb")
-    out.write(p.content)
+    out.write(r.content)
     out.close()
     return f'res/{name}.png'
 
