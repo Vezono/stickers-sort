@@ -69,7 +69,7 @@ def get_file(url, name):
     r = requests.get(url)
     out = open(f"res\\{name}", "wb")
     out.write(r.content)
-    return f'get_pic/?pic={name}'
+    return f'get_pic?pic={name}'
 
 
 
