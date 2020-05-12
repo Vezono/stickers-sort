@@ -11,7 +11,7 @@ urlparse.uses_netloc.append('redis')
 url = urlparse.urlparse(redis_url)
 r = redis.Redis(host=url.hostname, port=url.port, db=0, password=url.password)
 
-import config
+import web.config
 
 bot = BotUtil(config.token, config.creator)
 from pymongo import MongoClient
