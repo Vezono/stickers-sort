@@ -53,8 +53,9 @@ def main_page():
         imgs.append(img)
     return render_template('main.html', stickers=imgs)
         
-@app.route('/get_pic/<name>')
-def main_page():
+@app.route('/get_pic')
+def get_pic():
+    pic = request.args.get('pic')
     return redirect(f'https://api.telegram.org/file/bot1088457782:AAHnoZ1VBbewxcrv1ai-eKqdMaPVEfD50RE/stickers/{name}')
     
     
@@ -68,7 +69,7 @@ def get_file(url, name):
     r = requests.get(url)
     out = open(f"res\\{name}", "wb")
     out.write(r.content)
-    return f'get_pic/{name}'
+    return f'get_pic/?pic={name}'
 
 
 
