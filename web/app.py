@@ -22,7 +22,7 @@ def hello_world():
     #return render_template('index.html')
 
 def check_user(user_id, key):
-    salted = m.from_user.id + r.get('salt').decode("utf-8")
+    salted = user_id + r.get('salt').decode("utf-8")
     true_key = hashlib.md5(salted.encode()).hexdigest()
     return (key == true_key)
     
