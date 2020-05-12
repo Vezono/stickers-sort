@@ -50,7 +50,7 @@ def main_page():
     for sticker in stickers:
         number = sticker.split('stickers/')[1]
         img = get_file(sticker, number)
-    print(imgs)
+        imgs.append(img)
     return render_template('main.html', stickers=imgs)
         
     
