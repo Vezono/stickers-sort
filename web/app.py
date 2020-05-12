@@ -50,7 +50,7 @@ def main_page():
     for sticker in stickers:
         sticker_url = bot.get_file_url(sticker)
         imgs.append(imgs)
-    return srt(imgs)
+    return str(imgs)
         
     
     
