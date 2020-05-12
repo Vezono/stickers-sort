@@ -66,7 +66,7 @@ def get_file(url, name):
     out = open(f"res\\{name}", "wb")
     out.write(r.content)
     out.close()
-    return f'res/{name}.png'
+    return f'res/{name}'
 
 
 
