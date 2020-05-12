@@ -3,3 +3,4 @@ pyTelegramBotApi
 pymongo
 dnspython
 heroku3
+django
