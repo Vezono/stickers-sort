@@ -33,9 +33,6 @@ def me_handler(m):
 @bot.message_handler()
 def register_handler(m):
     if not users.find_one({'id': m.from_user.id}):
-        user_id = str(m.from_user.id)
-        hash = hashlib.sha1(user_id.encode()).hexdigest()
-        hash = hashlib.md5(hash.encode()).hexdigest()
         user = {
             'id': m.from_user.id,
             'hash': hash,
