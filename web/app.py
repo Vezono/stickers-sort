@@ -73,7 +73,7 @@ def get_stickers(user_id):
     user = users.find_one({'id': user_id})
     stickers = []
     for category in user['stickers']:
-        for sticker in user['stickers']['category']:
+        for sticker in user['stickers'][category]:
             stickers.append(bot.get_file_url(sticker))
     return stickers
         
