@@ -2,7 +2,13 @@ import redis
 import random
 import hashlib
 import time
-r = redis.Redis()
+import os
+import urlparse
+
+redis_url = os.getenv('REDISTOGO_URL')
+urlparse.uses_netloc.append('redis')
+url = urlparse.urlparse(redis_url)
+r = redis.Redis(host=url.hostname, port=url.port, db=0, password=url.password)
   
 def set_salt():
   global r
