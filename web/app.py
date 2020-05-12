@@ -21,7 +21,7 @@ def hello_world():
     if not check_user(user_id, key):
         return 'У ссылки истек срок действия или она повреждена.'
     session['id'] = user_id
-    return f'Вход успешен! {url_for("logout")} - выйти из системы {url_for("main")} - главная'
+    return f'Вход успешен! {url_for("logout")} - выйти из системы {url_for("mainpage")} - главная'
 
 @app.route('/logout')
 def logout():
