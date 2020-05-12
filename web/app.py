@@ -24,7 +24,7 @@ def hello_world():
         return 'У ссылки истек срок действия или она повреждена.'
     session['id'] = user_id
     #return f'Вход успешен! {domain + url_for("logout")} - выйти из системы {domain + url_for("main_page")} - главная'
-    return render_template('/templates/succsesfull_login.html', domain=domain, url_for=url_for)
+    return render_template('succsesfull_login.html', domain=domain, url_for=url_for)
 
 @app.route('/logout')
 def logout():
