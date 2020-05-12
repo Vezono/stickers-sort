@@ -1,10 +1,10 @@
 import heroku3
 
-import config
+from config import heroku_key
 
 
 class Heroku():
     def __init__(self, bot):
         self.bot = bot
-        self.app = heroku3.from_key(config.environ['heroku_key']).apps()['gbball-great-host']
+        self.app = heroku3.from_key(heroku_key).apps()['lk-contest']
         self.last_log = ''
