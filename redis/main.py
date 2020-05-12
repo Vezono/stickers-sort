@@ -3,7 +3,7 @@ import random
 import hashlib
 import time
 import os
-import urlparse
+import urllib.parse as urlparse
 
 redis_url = os.getenv('REDISTOGO_URL')
 urlparse.uses_netloc.append('redis')
