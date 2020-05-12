@@ -7,7 +7,7 @@ def hello_world():
     user_id = request.args.get('id')
     key = request.args.get('session')
     if not user_id or not key:
-        return = 'Вы не вошли в систему. Получите ссылку в боте командой /login'
+        return 'Вы не вошли в систему. Получите ссылку в боте командой /login'
     return 'Аргументы есть!'
     #return render_template('index.html')
 
