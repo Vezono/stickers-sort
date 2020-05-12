@@ -46,11 +46,7 @@ def logout():
 def main_page():
     user_id = int(session["id"])
     stickers = get_stickers(user_id)
-    imgs = []
-    #for sticker in stickers:
-        #sticker_url = bot.get_file_url(sticker)
-        #imgs.append(imgs)
-    return str(stickers)
+    return render_template('main.html', stickers=stickers)
         
     
     
