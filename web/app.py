@@ -10,6 +10,8 @@ urlparse.uses_netloc.append('redis')
 url = urlparse.urlparse(redis_url)
 r = redis.Redis(host=url.hostname, port=url.port, db=0, password=url.password)
 
+app.secret_key = 'UFHEuonhBWSIHfANJ:BFueojfb!wbeofipjmnv'
+
 @app.route('/', methods=['GET'])
 def hello_world():
     user_id = request.args.get('id')
@@ -39,3 +41,4 @@ def check_user(user_id, key):
     
 if __name__ == "__main__":
     app.run(threaded=True, port=os.environ['PORT'])
+    
