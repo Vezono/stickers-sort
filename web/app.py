@@ -49,8 +49,8 @@ def main_page():
     imgs = []
     for sticker in stickers:
         sticker_url = bot.get_file_url(sticker)
-        print(sticker_url)
-    return 'Грузим ваши стикоры...'
+        imgs.append(imgs)
+    return srt(imgs)
         
     
     
