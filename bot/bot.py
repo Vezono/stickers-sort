@@ -35,7 +35,6 @@ def register_handler(m):
     if not users.find_one({'id': m.from_user.id}):
         user = {
             'id': m.from_user.id,
-            'hash': hash,
             'stickers': {
                 'unsorted': []
             }
