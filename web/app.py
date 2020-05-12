@@ -31,7 +31,7 @@ def logout():
 
 @app.route('/main')
 def main_page():
-    return f'Ваш айди  - {session['id']}'
+    return f'Ваш айди  - {session["id"]}'
 
 def check_user(user_id, key):
     salted = user_id + r.get('salt').decode("utf-8")
