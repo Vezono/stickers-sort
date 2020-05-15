@@ -1,8 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style type="text/css">
+    #header { 
+    background-color: #79a381;
+    height: 10%;
+    width: 100%
+   }
+  </style>
 </head>
 <body>
+    <div id="header"></div>
     {% for sticker in stickers %}
         <img src="{{ sticker }}">
     {% endfor %}
