@@ -1,6 +1,6 @@
 from modules.BotUtil import BotUtil
 import config
-bot = BotUtil('1149367015:AAF-Uy_-2JMYhUDYZCPndAtNAUv-NsvXvq4', creator=config.creator)
+bot = BotUtil(config.token, creator=config.creator)
 bot.report('Инициализация...')
 
 from timeit import default_timer as timer
