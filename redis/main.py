@@ -3,12 +3,14 @@ import random
 import hashlib
 import time
 import os
-import urllib.parse as urlparse
-
-redis_url = os.getenv('REDISTOGO_URL')
-urlparse.uses_netloc.append('redis')
-url = urlparse.urlparse(redis_url)
-r = redis.Redis(host=url.hostname, port=url.port, db=0, password=url.password)
+if 'DYNO' in os.environ:
+  import urllib.parse as urlparse
+  redis_url = os.getenv('REDISTOGO_URL')
+  urlparse.uses_netloc.append('redis')
+  url = urlparse.urlparse(redis_url)
+  r = redis.Redis(host=url.hostname, port=url.port, db=0, password=url.password)
+else:
+  r = redis.Redis()
   
 def set_salt():
   global r
