@@ -1,4 +1,4 @@
 # lk-contest
-Run - start.sh
-Requirements - python3, redis.
-Check configs in bot/config.py
+Run - start.sh\n
+Requirements - python3, redis.\n
+Check configs in bot/config.py\n
