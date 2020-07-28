@@ -1,4 +1,4 @@
 # lk-contest
-Нужен редис и питон
-Запускаете start.sh
-Конфиги в bot/config
+Run - start.sh
+Requirements - python3, redis.
+Check configs in bot/config.py
