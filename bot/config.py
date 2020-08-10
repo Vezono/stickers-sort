@@ -1,3 +1,5 @@
-creator = 0 # your_telegram_id
-token = 'BOT TOKEN'
-database = 'MONGO TOKEN'
+import os
+
+creator = int(os.environ['ADMIN_ID'])
+token = os.environ['TELEGRAM_TOKEN']
+database = os.environ['MONGO_LINK']
