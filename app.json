@@ -17,6 +17,11 @@
     "MONGO_LINK": {
       "description": "Link on your mongo cloud.",
       "required": true
+    },
+    "ADMIN_ID": {
+      "value": "0",
+      "required": false,
+      "description": "Your telegram id."
     }
   },
   "buildpacks": [
