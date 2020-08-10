@@ -1,4 +1,1 @@
-# lk-contest
-## Run - start.sh
-## Requirements - python3, redis.
-## Check configs in bot/config.py
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
