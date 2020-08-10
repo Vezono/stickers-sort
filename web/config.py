@@ -1,3 +1,5 @@
-creator = 792414733
-token = '1088457782:AAHnoZ1VBbewxcrv1ai-eKqdMaPVEfD50RE'
-database = 'mongodb+srv://gbball:tttttt000!@database-fcfmt.gcp.mongodb.net/test?retryWrites=true&w=majority'
+from os import environ as e
+
+creator = int(e["ADMIN_ID"])
+token = e['TELEGRAM_TOKEN']
+database = e['MONGO_LINK']
