@@ -1,0 +1,27 @@
+{
+  "name": "TgStickerSortServer",
+  "description": "A Telegram Sticker Sort Server on Heroku",
+  "keywords": [
+    "telegram",
+    "stickers",
+    "server",
+    "backend
+  ],
+  "repository": "https://github.com/Vezono/stickers-sort",
+  "addons": ["redistogo:nano"],
+  "env": {
+    "TELEGRAM_TOKEN": {
+      "description": "Token of Telegram bot.",
+      "required": true
+    },
+    "MONGO_LINK": {
+      "description": "Link on your mongo cloud.",
+      "required": true
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ]
+}
