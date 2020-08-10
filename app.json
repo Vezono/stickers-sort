@@ -5,7 +5,7 @@
     "telegram",
     "stickers",
     "server",
-    "backend
+    "backend"
   ],
   "repository": "https://github.com/Vezono/stickers-sort",
   "addons": ["redistogo:nano"],
